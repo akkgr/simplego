@@ -1,0 +1,20 @@
+package views
+
+templ BaseView() {
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>Bootstrap demo</title>
+			<link href="/static/css/main.css" rel="stylesheet"/>
+		</head>
+		<body>
+			<main>
+				<div class="md:container md:mx-auto">
+					{ children... }
+				</div>
+			</main>
+			<script src="/static/js/htmx.min.js"></script>
+		</body>
+	</html>
+}

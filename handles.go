@@ -1,11 +1,12 @@
 package main
 
 import (
-	"net/http"
-	"text/template"
+	"simplego/views"
+
+	"github.com/labstack/echo"
 )
 
-func ShowHomePage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("views/index.html"))
-	tmpl.Execute(w, nil)
+func ShowHomePage(c echo.Context) error {
+	component := views.CompaniesView()
+	return component.Render(c.Request().Context(), c.Response().Writer)
 }

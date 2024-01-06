@@ -1,18 +1,16 @@
 package main
 
 import (
-	"log"
-	"net/http"
+	"github.com/labstack/echo"
 )
 
 func main() {
 
-	http.HandleFunc("/", ShowHomePage)
+	e := echo.New()
 
-	fs := http.FileServer(http.Dir("./static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	e.GET("/", ShowHomePage)
 
-	log.Println("🚀 Starting up on port 3000")
+	e.Static("/static", "static")
 
-	log.Fatal(http.ListenAndServe(":3000", nil))
+	e.Logger.Fatal(e.Start(":3000"))
 }
