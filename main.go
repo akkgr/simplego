@@ -15,7 +15,10 @@ func main() {
 
 	e.GET("/", ShowHomePage)
 
-	e.Static("/static", "static")
+	e.Static("/css", "static/css")
+	e.Static("/js", "static/js")
+	e.Static("/font", "static/font")
+	e.Static("/favicon.ico", "static/favicon.ico")
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
